@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0c0b09" />
+    <meta name="description" content="DEADTAB is the browser tab you forgot to close." />
+    <title>DEADTAB — still loading</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="boot" id="boot" aria-live="polite">
+      <div class="boot-logo">◉ DEADTAB</div>
+      <p id="bootText">opening tab...</p>
+      <div class="boot-line"><i></i></div>
+    </div>
+
+    <main class="browser-shell" id="browser">
+      <header class="chrome">
+        <div class="chrome-top">
+          <span class="system-note">local / forgotten / persistent</span>
+          <div class="window-controls" aria-hidden="true"><i></i><i></i><i></i></div>
+        </div>
+        <nav class="tabs" aria-label="DEADTAB pages">
+          <button class="new-tab" id="newTab" aria-label="Open new tab">+</button>
+          <button class="tab is-active" data-page="home"><span class="globe">◉</span> DEADTAB <b>×</b></button>
+          <button class="tab" data-page="status">STATUS <b>×</b></button>
+          <button class="tab" data-page="archive">ARCHIVE <b>×</b></button>
+          <button class="tab" data-page="token">TOKEN <b>×</b></button>
+          <button class="tab" data-page="signal">SIGNAL <b>×</b></button>
+        </nav>
+        <div class="addressbar"><span class="lock">⌁</span><span id="address">deadtab://still-here</span><span class="address-end">⋮</span></div>
+      </header>
+
+      <section class="pages">
+        <article class="page is-active hero-page" id="home" data-path="deadtab://still-here">
+          <div class="hero-art"></div>
+          <div class="hero-shade"></div>
+          <div class="hero-copy">
+            <p class="eyebrow">THE TAB YOU FORGOT TO CLOSE.</p>
+            <h1>DEADTAB<span class="cursor">_</span></h1>
+            <p class="statement">Four years later, 847 tabs are open,<br>RAM is dying, and this one is still loading.</p>
+            <button class="main-cta" data-page="status">OPEN DEADTAB <span>↗</span></button>
+          </div>
+          <div class="hero-status">
+            <span>STATUS: <b>ACTIVE</b></span><span>AGE: <b>4 YEARS</b></span>
+            <span>PURPOSE: <b>UNKNOWN</b></span><span>CLOSE BUTTON: <b>BROKEN</b></span>
+          </div>
+          <p class="wheel-hint">SCROLL TO OPEN NEXT TAB <span>↓</span></p>
+        </article>
+
+        <article class="page status-page" id="status" data-path="deadtab://status">
+          <div class="blueprint"></div>
+          <div class="status-layout">
+            <div class="terminal-card">
+              <p class="terminal-title">DEADTAB.EXE <span>● LIVE</span></p>
+              <div class="terminal-lines">
+                <p><em>&gt;</em> TABS OPEN <b>847</b></p><p><em>&gt;</em> RAM <b>98%</b></p>
+                <p><em>&gt;</em> CPU <b>17%</b></p><p><em>&gt;</em> LAST ACTIVE <b>4 YEARS AGO</b></p>
+                <p><em>&gt;</em> PRODUCTIVITY <b>0%</b></p><p><em>&gt;</em> PURPOSE <b>NONE</b></p>
+                <p><em>&gt;</em> STATUS <b class="alive">ALIVE</b></p><p><em>&gt;</em> CLOSE BUTTON <b class="broken">BROKEN</b></p>
+              </div>
+              <p class="terminal-bottom">you should probably close this<span class="cursor">_</span></p>
+            </div>
+            <div class="status-copy">
+              <p class="eyebrow">SYSTEM DIAGNOSTIC / 04:20 AM</p>
+              <h2>STILL HERE.<br><i>UNFORTUNATELY.</i></h2>
+              <p>Some tabs get closed. Some tabs survive browser updates, abandoned projects, three crypto cycles and every promise to “clean this up later.”</p>
+              <p>DEADTAB is that tab.</p>
+              <button class="text-button" data-page="archive">SEE WHAT ELSE IS OPEN <span>→</span></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="page archive-page" id="archive" data-path="deadtab://archive">
+          <div class="archive-head"><p class="eyebrow">UNSAVED SESSION / 847 ITEMS</p><h2>THE ARCHIVE</h2><p>Nothing important. Everything impossible to close.</p></div>
+          <div class="archive-grid" id="archiveGrid"></div>
+          <div class="archive-footer"><span>YOU OPEN A TAB.</span><span>YOU FORGET WHY.</span><span>YOU OPEN ONE MORE.</span></div>
+        </article>
+
+        <article class="page token-page" id="token" data-path="deadtab://token-info">
+          <div class="token-backdrop"></div>
+          <div class="token-panel">
+            <div class="paper-corner">DON'T<br>MAKE IT<br>WEIRD.</div>
+            <p class="eyebrow">INFORMATION THAT WILL NOT HELP</p>
+            <h2>TOKEN<br>DETAILS<span class="cursor">_</span></h2>
+            <dl>
+              <div><dt>NAME</dt><dd>DEADTAB</dd></div>
+              <div><dt>TICKER</dt><dd>DEADTAB</dd></div>
+              <div><dt>SUPPLY</dt><dd data-config="supply">PENDING</dd></div>
+              <div><dt>CHAIN</dt><dd data-config="chain">PENDING</dd></div>
+              <div class="contract"><dt>CONTRACT</dt><dd data-config="contract">NOT DEPLOYED</dd></div>
+            </dl>
+            <p class="fine-print">No roadmap. No promises. Just one more tab.</p>
+          </div>
+        </article>
+
+        <article class="page signal-page" id="signal" data-path="deadtab://signal">
+          <div class="signal-image"></div>
+          <div class="signal-content">
+            <p class="eyebrow">OUTGOING SIGNAL / WEAK BUT PRESENT</p>
+            <h2>THE INTERNET NEVER CLOSES.<br><i>NEITHER DO WE.</i></h2>
+            <p class="signal-copy">If you know why this tab is still open, you’re already in the right place.</p>
+            <div class="signal-actions">
+              <a class="main-cta disabled-link" data-config-link="x" href="#">X / PENDING <span>↗</span></a>
+              <a class="outline-cta disabled-link" data-config-link="telegram" href="#">TELEGRAM / PENDING</a>
+            </div>
+          </div>
+          <div class="close-attempt"><span>×</span><p>you can't close me</p></div>
+        </article>
+      </section>
+      <footer class="browser-footer"><span>◉ DEADTAB</span><span id="pageIndex">01 / 05</span><span>STILL LOADING...</span></footer>
+    </main>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
