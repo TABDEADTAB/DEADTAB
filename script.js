@@ -45,4 +45,14 @@ fetch('data/config.json').then(r => r.json()).then(config => {
   document.querySelectorAll('[data-config]').forEach(el => { const value = config[el.dataset.config]; if (value) el.textContent = value; });
   document.querySelectorAll('[data-config-link]').forEach(el => { const value = config[el.dataset.configLink]; if (value) { el.href = value; el.classList.remove('disabled-link'); el.textContent = `${el.dataset.configLink.toUpperCase()} ↗`; } });
 }).catch(() => {});
-window.addEventListener('load', () => { setTimeout(() => { document.querySelector('#boot').style.display = 'none'; document.querySelector('#browser').classList.add('is-ready'); }, 1700); });
+const gate = document.querySelector('#launchGate');
+const countdownFields = ['days','hours','minutes','seconds'].map(id => document.querySelector(`#${id}`));
+const countdownNote = document.querySelector('#countdownNote');
+const countdownNotes = ['ESTIMATED. PROBABLY WRONG.','SYNC LOST. TRYING AGAIN.','TIME IS A SUGGESTION.','LAUNCH DATE: MAYBE LATER.','DO NOT TRUST THE NUMBERS.'];
+let fakeSeconds = 236029;
+function renderCountdown() { fakeSeconds = Math.max(0, fakeSeconds - 1); const value = [Math.floor(fakeSeconds / 86400), Math.floor(fakeSeconds / 3600) % 24, Math.floor(fakeSeconds / 60) % 60, fakeSeconds % 60]; countdownFields.forEach((field, i) => field.textContent = String(value[i]).padStart(2, '0')); }
+renderCountdown();
+setInterval(() => { renderCountdown(); if (Math.random() < .16) { const target = countdownFields[Math.floor(Math.random() * countdownFields.length)]; target.classList.add('glitch'); target.textContent = String(Math.floor(Math.random() * 98)).padStart(2, '0'); countdownNote.textContent = countdownNotes[Math.floor(Math.random() * countdownNotes.length)]; setTimeout(() => { target.classList.remove('glitch'); renderCountdown(); }, 220); } }, 1000);
+function unlock() { gate.classList.add('is-closing'); document.querySelector('#browser').classList.add('is-ready'); setTimeout(() => gate.remove(), 600); }
+document.querySelector('#unlockForm').addEventListener('submit', event => { event.preventDefault(); const input = document.querySelector('#accessKey'); const message = document.querySelector('#unlockMessage'); if (input.value === '1177711') { message.textContent = 'access granted.'; setTimeout(unlock, 350); } else { message.textContent = 'wrong tab.'; input.select(); } });
+window.addEventListener('load', () => { setTimeout(() => { document.querySelector('#boot').style.display = 'none'; gate.classList.add('is-visible'); }, 1700); });

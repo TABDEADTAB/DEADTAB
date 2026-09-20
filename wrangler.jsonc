@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "deadtab-site",
+  "compatibility_date": "2026-09-20",
+  "workers_dev": false,
+  "assets": {
+    "directory": "./site"
+  },
+  "routes": [
+    {
+      "pattern": "deadtab.lat",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.deadtab.lat",
+      "custom_domain": true
+    }
+  ]
+}
