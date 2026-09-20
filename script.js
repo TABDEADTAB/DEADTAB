@@ -43,7 +43,7 @@ document.querySelector('#newTab').addEventListener('click', () => { toast.textCo
 document.querySelector('.close-attempt').addEventListener('click', () => { toast.textContent = "you can't close me"; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2400); });
 fetch('data/config.json').then(r => r.json()).then(config => {
   document.querySelectorAll('[data-config]').forEach(el => { const value = config[el.dataset.config]; if (value) el.textContent = value; });
-  document.querySelectorAll('[data-config-link]').forEach(el => { const value = config[el.dataset.configLink]; if (value) { el.href = value; el.classList.remove('disabled-link'); el.textContent = `${el.dataset.configLink.toUpperCase()} ↗`; } });
+  document.querySelectorAll('[data-config-link]').forEach(el => { const value = config[el.dataset.configLink]; if (value) { el.href = value; el.target = '_blank'; el.rel = 'noopener noreferrer'; el.classList.remove('disabled-link'); el.textContent = `${el.dataset.configLink.toUpperCase()} ↗`; } });
 }).catch(() => {});
 const gate = document.querySelector('#launchGate');
 const countdownFields = ['days','hours','minutes','seconds'].map(id => document.querySelector(`#${id}`));
